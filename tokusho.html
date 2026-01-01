@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>特定商取引法表記 - TimeSum</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<button onclick="setLang('ja')">日本語</button>
+<button onclick="setLang('en')">English</button>
+
+<h1>特定商取引法に基づく表記</h1>
+
+<div data-lang="ja">
+<ul>
+<li>販売事業者：個人開発者</li>
+<li>所在地：請求があった場合に遅滞なく開示します</li>
+<li>連絡先：GitHub リポジトリ経由</li>
+<li>販売価格：アプリ内に表示</li>
+<li>支払方法：各アプリストアに準ずる</li>
+<li>返品・キャンセル：デジタル商品のため不可</li>
+</ul>
+</div>
+
+<div data-lang="en">
+<p>This page is provided to comply with Japanese commercial law.</p>
+<p>For inquiries, please contact via the GitHub repository.</p>
+</div>
+
+<script>
+function setLang(lang) {
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    el.style.display = el.dataset.lang === lang ? 'block' : 'none';
+  });
+  localStorage.setItem('lang', lang);
+}
+document.addEventListener('DOMContentLoaded', () => {
+  setLang(localStorage.getItem('lang') || 'ja');
+});
+</script>
+
+</body>
+</html>
