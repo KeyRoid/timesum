@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>TimeSum</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<button onclick="setLang('ja')">日本語</button>
+<button onclick="setLang('en')">English</button>
+
+<h1>TimeSum</h1>
+
+<div data-lang="ja">
+<p>TimeSum は、60進法による時間計算を高速かつ直感的に行うためのプロ向け電卓アプリです。</p>
+<ul>
+<li><a href="privacy.html">プライバシーポリシー</a></li>
+<li><a href="terms.html">利用規約</a></li>
+<li><a href="tokusho.html">特定商取引法に基づく表記</a></li>
+</ul>
+</div>
+
+<div data-lang="en">
+<p>TimeSum is a professional calculator app designed for fast and intuitive base-60 time calculations.</p>
+<ul>
+<li><a href="privacy.html">Privacy Policy</a></li>
+<li><a href="terms.html">Terms of Service</a></li>
+<li><a href="tokusho.html">Legal Notice (Japan)</a></li>
+</ul>
+</div>
+
+<script>
+function setLang(lang) {
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    el.style.display = el.dataset.lang === lang ? 'block' : 'none';
+  });
+  localStorage.setItem('lang', lang);
+}
+document.addEventListener('DOMContentLoaded', () => {
+  setLang(localStorage.getItem('lang') || 'ja');
+});
+</script>
+
+</body>
+</html>
