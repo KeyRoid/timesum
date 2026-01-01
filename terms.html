@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Terms of Service - TimeSum</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<button onclick="setLang('ja')">日本語</button>
+<button onclick="setLang('en')">English</button>
+
+<h1>Terms of Service</h1>
+
+<div data-lang="ja">
+<p>本アプリは現状のまま提供されます。</p>
+<p>開発者は本アプリの使用によって生じた損害について一切の責任を負いません。</p>
+<p>本アプリは計算補助ツールであり、結果の正確性を保証するものではありません。</p>
+</div>
+
+<div data-lang="en">
+<p>This app is provided "as is".</p>
+<p>The developer is not responsible for any damages resulting from use of this app.</p>
+<p>This app is a calculation aid and does not guarantee result accuracy.</p>
+</div>
+
+<script>
+function setLang(lang) {
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    el.style.display = el.dataset.lang === lang ? 'block' : 'none';
+  });
+  localStorage.setItem('lang', lang);
+}
+document.addEventListener('DOMContentLoaded', () => {
+  setLang(localStorage.getItem('lang') || 'ja');
+});
+</script>
+
+</body>
+</html>
